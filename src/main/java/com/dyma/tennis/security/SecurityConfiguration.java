@@ -38,12 +38,12 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .cors(cors -> cors.disable())
                 .csrf(csrf -> csrf.disable())
                 .headers(headers ->
                         headers
                                 .contentSecurityPolicy(csp ->
                                         csp.policyDirectives("default-src 'self' data:;" +
+                                                "connect-src 'self' https:;" +
                                                 "style-src 'self' maxcdn.bootstrapcdn.com getbootstrap.com 'unsafe-inline';"))
                                 .frameOptions(frameOptionsConfig -> frameOptionsConfig.deny())
                                 .permissionsPolicy(permissions ->
