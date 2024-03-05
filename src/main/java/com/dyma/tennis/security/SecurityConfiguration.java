@@ -43,7 +43,7 @@ public class SecurityConfiguration {
                         headers
                                 .contentSecurityPolicy(csp ->
                                         csp.policyDirectives("default-src 'self' data:;" +
-                                                "connect-src 'self' https:;" +
+                                                "connect-src 'self' http: https:;" +
                                                 "style-src 'self' maxcdn.bootstrapcdn.com getbootstrap.com 'unsafe-inline';"))
                                 .frameOptions(frameOptionsConfig -> frameOptionsConfig.deny())
                                 .permissionsPolicy(permissions ->
