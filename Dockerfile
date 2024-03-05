@@ -6,5 +6,6 @@ RUN mvn -f pom.xml clean package
 FROM eclipse-temurin:17-jre as run
 RUN useradd dyma
 USER dyma
+EXPOSE 8080
 COPY --from=build /target/dyma-tennis.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
